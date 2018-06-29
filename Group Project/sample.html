@@ -1,0 +1,15 @@
+<h:outputLabel for="txtUsername">Username: 
+            </h:outputLabel>
+            <h:inputText id="txtUsername" value="#{UserObj.email}" validatorMessage="Please Enter Username">
+                <f:validateRequired/></h:inputText><br/><br/>
+                
+            <h:outputLabel for="txtPwd">Password: 
+            </h:outputLabel>
+            <h:inputSecret id="txtPwd" value="#{UserObj.password}" validatorMessage="Please Enter Password">
+            <f:validateRequired/></h:inputSecret><br/><br/>
+            
+           <h:commandButton id="login" value="LOGIN" action="#{UserObj.login()}"></h:commandButton>
+            <br/><br/>
+            <h:link id="signup" value="Sign Up" outcome="signup.xhtml"></h:link>
+            </h:form>
+           </center>      
