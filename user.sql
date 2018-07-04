@@ -28,6 +28,8 @@ SET time_zone = "+00:00";
 -- Table structure for table `user`
 --
 
+
+
 CREATE TABLE `user` (
   `ID` int(5) NOT NULL,
   `first_name` varchar(200) NOT NULL,
