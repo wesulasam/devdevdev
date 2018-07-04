@@ -13,8 +13,33 @@
 	</head>
 		<body>
 			<style type="text/css">
+				header{
+					width: 100%;
+					height: 90px;
+					background-color: #008B8B;	
+					float: left;
+				}
+				header ul> li{
+					width: 12%;
+					margin-left: 3%;
+					float: left;
+					padding-top: 2%;
+					display: block;
+					text-decoration: none;	
+					text-align: center;
+					font-size: 140%;
+				}
+
+				header ul> li> a{
+					text-decoration: none;
+					color: #ecf0f1;
+				}
+
+				header ul> li> a:hover{	
+					color: #8e44ad;
+				}
 				body{
-					background-color: Blue; 
+					background-color: White; 
 				}
 				div#carousel { 
 				  perspective: 1200px; 
@@ -58,10 +83,15 @@
 				  line-height: 0; }
 				div#carousel ~ span:hover { color: #888; cursor: pointer; }
 			</style>
-			<form>
-				<button id="login" value ="Log In" outcome ="login"></button>
-			</form>
-			
+			<header>
+				<ul>
+			<li class="selected-link"><a href="GSHomepage.html">Home</a></li>
+			<a href="login.html">
+				<button type="login">Log In</button>
+			</a>
+				</ul>
+			</header>
+
 			<h1><em>GAMING SYSTEM<em></h1>
 			
 			<div id="carousel">
