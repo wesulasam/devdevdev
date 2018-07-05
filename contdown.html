@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="countdown.css">
+</head>
+<body>
+	<li><a href="home.html">Home</a></li>
+
+	<p id="time_left"></p>
+<ul>
+  <button id="playpause">Play</button>
+  <button id="reset">Restart</button>
+</ul>
+<script type="text/javascript">
+var q= 20;
+	var COUNT_START = 10*1*10; // tenths * seconds * hours
+var count = COUNT_START;
+var playing = false;
+Play = document.getElementById('playpause');
+Restart = document.getElementById('reset');
+playpause.onclick = function() {
+  if (playing) {
+    playing = false; 
+    console.log("Pause!");
+    Play.innerHTML = "play";
+  } else if (!playing) {
+    playing = true; 
+    console.log("Play!");
+    Play.innerHTML = "pause";
+  }
+  
+}
+Restart.onclick = function() {
+  if (playing) {
+    playing = false; 
+    Play.innerHTML = "play";
+  }
+  console.log("Reset Timer!");
+  count = COUNT_START;
+
+}
+function countdown(){
+    displayTime(); 
+    if (count == 0) {
+      playing = false;
+ alert("The game is done. Your total charge is " +q);
+    } else if (playing) {
+      setTimeout(countdown, 100);
+      count--;
+    } else {
+      setTimeout(countdown, 100) ;
+    }
+}
+countdown();
+function displayTime() {
+  
+  var tenths = count;  
+  var sec = Math.floor(tenths / 10);
+  var hours = Math.floor(sec / 3600);
+  sec -= hours * (3600);
+  var mins = Math.floor(sec / 60);
+  sec -= mins * (60);
+  if (hours < 1) {
+    document.getElementById('time_left').innerHTML = LeadingZero(mins)+':'+LeadingZero(sec);
+  }
+  else {
+    document.getElementById('time_left').innerHTML = hours+':'+LeadingZero(mins)+':'+LeadingZero(sec);
+  }
+}
+function LeadingZero(Time) {
+  return (Time < 10) ? "0" + Time : + Time;
+}
+
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: " ",
+  database: "gamesys"
+});
+
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+  
+  var sql = "INSERT INTO charge (ID, charge) VALUES (NULL, '20')";
+  con.query(sql, function (err, result) {
+    if (err) throw err;
+    console.log("1 record inserted");
+  });
+});
+</script>
+
+</body>
+</html>
+
+
+
+
